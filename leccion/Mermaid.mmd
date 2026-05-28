@@ -1,0 +1,31 @@
+classDiagram
+
+    class Vehiculo {
+        -placa string
+        -capacidadKg number
+        +obtenerInfo() string
+    }
+
+    class Etiqueta {
+        -codigoBarras string
+        -esFragil boolean
+        +obtenerAdvertencia() string
+        +obtenerCodigo() string
+    }
+
+    class Paquete {
+        -destinatario string
+        -direccion string
+        -etiqueta Etiqueta
+        +mostrarGuia() void
+    }
+
+    class Conductor {
+        -nombre string
+        -entregasRealizadas number
+        -vehiculo Vehiculo
+        +mostrarDatos() void
+    }
+
+    Paquete *-- Etiqueta : composicion
+    Conductor o-- Vehiculo : agregacion
